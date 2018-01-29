@@ -9,22 +9,26 @@ import java.util.stream.Collectors;
 public class TryJava8 {
 
 	public static void main(String[] args) {
-		List<String> s = new Random().ints(1, 10000).limit(100000).mapToObj(String::valueOf)
+		List<String> sourceList = new Random().ints(1, 10000).limit(100).mapToObj(String::valueOf)
 				.collect(Collectors.toList());
+		System.out.println(sourceList.spliterator().estimateSize());
+		
 		// List<String> num = Stream.iterate(1, i -> i +
 		// 1).limit(100000).collect(Collectors.toList());
 
 		/**
 		 * Group by 
 		 */
-		Map<Object, Long> myMap = s.stream().collect(Collectors.groupingBy(z -> z, Collectors.counting()));
+		//Map<Object, Long> myMap = s.stream().collect(Collectors.groupingBy(z -> z, Collectors.counting()));
 
 		/**
 		 * Sorting on a group by
 		 */
-		Map<Object, Long> finalMap = new LinkedHashMap<>();
-		myMap.entrySet().stream().sorted(Map.Entry.comparingByValue())
-				.forEachOrdered(e -> finalMap.put(e.getKey(), e.getValue()));
+		//Map<Object, Long> finalMap = new LinkedHashMap<>();
+		//myMap.entrySet().stream().sorted(Map.Entry.comparingByValue())
+		//		.forEachOrdered(e -> finalMap.put(e.getKey(), e.getValue()));
+		
+		
 
 	}
 
