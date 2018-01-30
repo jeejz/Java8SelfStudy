@@ -7,18 +7,28 @@ public class MyMath {
 		return p.check(num);
 	}
 
-	PerformOperation isOdd = x -> {
-		return (x % 2 == 0) ? Boolean.FALSE : Boolean.TRUE;
+	public PerformOperation isOdd(){
+   PerformOperation isOdd = x -> {
+		return (x % 2 != 0);
 	};
+    
+    return isOdd;
+}    
 
-	PerformOperation isPrime = x -> {
-		return IntStream.rangeClosed(2, x / 2).peek(System.out::println).noneMatch(t -> x % t == 0);
+public PerformOperation isPrime(){
+	 PerformOperation isPrime = x -> {
+		return java.util.stream.IntStream.rangeClosed(2, x / 2).noneMatch(t -> x % t == 0);
 	};
-
-	PerformOperation isPalindrome = x -> {
+    return isPrime;
+}
+    public PerformOperation isPalindrome(){
+	 PerformOperation isPalindrome = x -> {
 		String y = String.valueOf(x);
 		String z = new StringBuilder(y).reverse().toString();
-		return (y.equals(z)) ? Boolean.TRUE : Boolean.FALSE;
+		return (y.equals(z)) ;
 	};
+        return isPalindrome;
+    }
+}
 
 }
